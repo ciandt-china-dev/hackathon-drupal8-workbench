@@ -64,13 +64,6 @@ function workbench_menu() {
 }
 
 /**
- * Controls access to admin/workbench/create
- */
-function workbench_create_access() {
-  return (user_access('access workbench') && _node_add_access());
-}
-
-/**
  * Implements hook_permission().
  */
 function workbench_permission() {
