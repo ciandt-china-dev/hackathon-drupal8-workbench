@@ -1,0 +1,10 @@
+workbench.content_tab:
+  route_name: workbench.content
+  title: 'My content'
+  weight: 1
+  base_route: workbench.content
+workbench.create_content_tab:
+  route_name: workbench.create_content
+  title: 'Create content'
+  weight: 2
+  base_route: workbench.workbench
