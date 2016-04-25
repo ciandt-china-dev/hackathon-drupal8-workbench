@@ -4,6 +4,5 @@ description: Workbench editorial suite.
 package: Workbench
 core: 8.x
 version: 8.x-1.x
-configure: admin/config/workbench/settings
 dependencies:
  - views
