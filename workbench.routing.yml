@@ -9,7 +9,7 @@ workbench.content:
 workbench.create_content:
   path: '/admin/workbench/create'
   defaults:
-    _controller: '\Drupal\workbench\Controller\WorkbenchContentController::create'
+    _controller: '\Drupal\workbench\Controller\WorkbenchContentController::addPage'
   requirements:
     _permission: 'access workbench'
     _node_add_access: 'node'
