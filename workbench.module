@@ -21,23 +21,22 @@ function workbench_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implementation of hook_preprocess_views_view_table().
+ * Implementation of template_preprocess_views_view_field().
  *
  * This is done to convert the "type" field to a thumbnail for image files.
- *
  */
 function workbench_preprocess_views_view_field(&$variables) {
-  $view = $variables['view'];
-
-  if ($view->name == 'workbench_current_user'  && $variables['field']->definition['handler'] == 'views_handler_field_user_picture') {
-    if (empty($variables['output'])) {
+  if ($variables['view']->id() == 'workbench_current_user' && $variables['field']->field == 'user_picture') {
+    if (!empty($variables['row']->_entity->get('user_picture')->getValue())) {
       // We could put the default picture here
-      $variables['output'] = theme('image', array(
-        'path' => drupal_get_path('module', 'workbench') . '/images/profile_default.png',
-        'attributes' => array(
+      $output = array(
+        '#theme'      => 'image',
+        '#attributes' => array(
           'width' => '100px',
-         ),
-      ));
+          'src'   => '/' . drupal_get_path('module', 'workbench') . '/images/profile_default.png',
+        ),
+      );
+      $variables['output'] = drupal_render($output);
     }
   }
 }
