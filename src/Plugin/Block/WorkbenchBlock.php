@@ -29,7 +29,7 @@ class WorkbenchBlock extends BlockBase {
     return array(
       '#markup' => '<div class="workbench-info-block">'. implode('<br />', $items) . '</div>',
       '#attached' => array(
-        'library' => array('workbench/workbench.image')
+        'library' => array('workbench/workbench.block')
       ),
     );
   }
