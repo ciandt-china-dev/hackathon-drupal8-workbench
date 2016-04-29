@@ -23,7 +23,7 @@
  */
 function hook_workbench_content_alter(&$output) {
   // Replace the default "Recent Content" view with our custom View.
-  $output['workbench_recent_content']['#view'] = 'custom_view';
+  $output['workbench_recent_content']['#view_id'] = 'custom_view';
   $output['workbench_recent_content']['#view_display'] = 'block_2';
 }
 
@@ -40,23 +40,8 @@ function hook_workbench_content_alter(&$output) {
  * @see workbench_create()
  */
 function hook_workbench_create_alter(&$output) {
-  // Example taken from Workbench Media module.
-  if (user_access('use workbench_media add form')) {
-    // Mimic node_add_page() theming.
-    $items = array(
-      array(
-        'title' => t('Upload Media'),
-        'href' => 'admin/workbench/media/add',
-        'localized_options' => array(),
-        'description' => t('Add photos, videos, audio, or other files to the site.'),
-      )
-    );
-    $output['field_workbench_create_media'] = array(
-      '#title' => t('Create Media'),
-      '#markup' => theme('node_add_list', array('content' => $items)),
-      '#theme' => 'workbench_element',
-      '#weight' => -1,
-    );
+  if (\Drupal::currentUser()->hasPermission('use workbench_media add form')) {
+    $output['#content']['article']->set('description', 'hello world');
   }
 }
 
@@ -73,12 +58,12 @@ function hook_workbench_create_alter(&$output) {
  */
 function hook_workbench_block() {
   // Add editing information to this page (if it's a node).
-  if ($node = menu_get_object()) {
-    if (node_access('update', $node)) {
-      return array(t('My Module: <em>You may not edit this content.</em>'));
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if ($node->entityTypeId == 'node' && $node->access('update')) {
+      return array(t('My Module: <em>You may edit this content.</em>'));
     }
     else {
-      return array(t('My Module: <em>You may edit this content.</em>'));
+      return array(t('My Module: <em>You may not edit this content.</em>'));
     }
   }
 }
