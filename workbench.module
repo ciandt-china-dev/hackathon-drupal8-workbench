@@ -28,7 +28,7 @@ function workbench_theme($existing, $type, $theme, $path) {
 function workbench_preprocess_views_view_field(&$variables) {
   if ($variables['view']->id() == 'workbench_current_user' && $variables['field']->field == 'user_picture') {
     if (empty($variables['row']->_entity->get('user_picture')->getValue())) {
-      // We could put the default picture here
+      // We could put the default picture here.
       $output = array(
         '#theme'      => 'image',
         '#attributes' => array(
@@ -42,8 +42,9 @@ function workbench_preprocess_views_view_field(&$variables) {
 }
 
 /**
- * Implements hook_ctools_plugin_directory() to let the system know
- * where our task and task_handler plugins are.
+ * Implements hook_ctools_plugin_directory().
+ *
+ * Let the system know where our task and task_handler plugins are.
  */
 function workbench_ctools_plugin_directory($owner, $plugin_type) {
   if ($owner == 'page_manager') {

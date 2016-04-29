@@ -16,8 +16,8 @@
  * The left and right columns in this output are given widths of 35% and 65%
  * respectively by workbench.my-workbench.css.
  *
- * @param $output
- *  A Render API array of content items, passed by reference.
+ * @param array $output
+ *   A Render API array of content items, passed by reference.
  *
  * @see workbench_content()
  */
@@ -34,8 +34,8 @@ function hook_workbench_content_alter(&$output) {
  * node/add page. The render array for this page may be modified
  * by other modules.
  *
- * @param $output
- *  A Render API array of content items, passed by reference.
+ * @param array $output
+ *   A Render API array of content items, passed by reference.
  *
  * @see workbench_create()
  */
@@ -51,10 +51,11 @@ function hook_workbench_create_alter(&$output) {
  * To reduce clutter, modules are encouraged to use this hook
  * to provide debugging and other relevant information.
  *
- * @return
+ * @return array
  *   An array of message strings to print. The preferred format
  *   is a one line string in the format Title: <em>Message</em>.
- * @see workbench_block_view().
+ *
+ * @see workbench_block_view()
  */
 function hook_workbench_block() {
   // Add editing information to this page (if it's a node).

@@ -7,7 +7,6 @@
 namespace Drupal\workbench\Controller;
 
 use Drupal\node\Controller\NodeController;
-use Drupal\Core\Render\Element;
 use Drupal\views\Plugin\Block\ViewsBlock;
 
 /**
@@ -87,7 +86,7 @@ class WorkbenchContentController extends NodeController {
       $block_id = "views_block:{$view_id}-{$display_id}";
       $plugin = new ViewsBlock($config, $block_id, $definition, $views_executable, $view_storage, $user);
       $build = $plugin->build();
-      
+
       if (isset($block['#attributes'])) {
         foreach ($block['#attributes'] as $k => $v) {
           $build['#attributes'][$k] = array_merge($build['#attributes'][$k], $v);
