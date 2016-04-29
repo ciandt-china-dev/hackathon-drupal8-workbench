@@ -13,3 +13,11 @@ workbench.create_content:
   requirements:
     _permission: 'access workbench'
     _node_add_access: 'node'
+workbench.my_edited:
+  path: '/admin/workbench/content/edited'
+  requirements:
+    _permission: 'access workbench'
+workbench.all_content:
+  path: '/admin/workbench/content/all'
+  requirements:
+    _permission: 'access workbench'

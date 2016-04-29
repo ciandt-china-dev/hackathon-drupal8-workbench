@@ -1,0 +1,12 @@
+workbench.my_edited:
+  route_name: workbench.my_edited
+  title: 'My Edits'
+  weight: 1
+  appears_on:
+    - workbench.content
+workbench.all_content:
+  route_name: workbench.all_content
+  title: 'All Recent Content'
+  weight: 2
+  appears_on:
+    - workbench.content
