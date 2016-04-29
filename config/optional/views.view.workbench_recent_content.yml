@@ -694,7 +694,20 @@ display:
       title: 'Workbench: Recent content'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There is no content available for you to edit.'
+            format: basic_html
+          plugin_id: text
       relationships:
         uid:
           id: uid
@@ -738,6 +751,9 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
       pager:
         type: some
         options:
@@ -1102,6 +1118,9 @@ display:
           text: edit
           entity_type: node
           plugin_id: entity_link_edit
+      use_more: true
+      use_more_always: false
+      use_more_text: 'view all'
     cache_metadata:
       max-age: 0
       contexts:

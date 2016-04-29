@@ -672,8 +672,34 @@ display:
           plugin_id: date
       title: 'My Edits'
       header: {  }
-      footer: {  }
-      empty: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'Edited something recently and it''s not in this list? If a content type isn''t revisioned and you didn''t create it, it will not show up in this list when you edit it. You can find it in the ''Content I Can Edit'' tab.'
+            format: basic_html
+          plugin_id: text
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'You haven''t created or edited any content.'
+            format: basic_html
+          plugin_id: text
       relationships:
         uid:
           id: uid
@@ -731,6 +757,10 @@ display:
         header: false
         filters: false
         filter_groups: false
+        footer: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
       header:
         area:
           id: area
@@ -826,6 +856,10 @@ display:
         operator: AND
         groups:
           1: AND
+      footer: {  }
+      use_more: true
+      use_more_always: false
+      use_more_text: 'view all'
     cache_metadata:
       max-age: 0
       contexts:

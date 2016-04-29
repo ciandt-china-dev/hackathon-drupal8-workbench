@@ -322,7 +322,7 @@ display:
           entity_type: user
           plugin_id: user_current
       sorts: {  }
-      title: 'Workbench: Current user'
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }
